@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Global - score report</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>Unweighted global score:<ion-note item-end>{{ki67Score.getGlobalScore()}}%</ion-note></ion-item>
+  <ion-item>Weighted global score:<ion-note item-end>{{ki67Score.getWeightedGlobalScore()}}%</ion-note></ion-item>
+  <ion-list-header>Nuclei count on fields:</ion-list-header>
+  <ion-item-group>
+    <ion-item-divider color="ki67negative">Negligible ({{ki67Score.pNeg}}%)</ion-item-divider>
+    <ion-item *ngFor='let field of ki67Score.getFieldsNeg()'>
+      {{field.negCount}}- / {{field.posCount}}+
+      <ion-note item-end>{{field.getScore()}}%</ion-note></ion-item>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-item-divider color="ki67low">Low ({{ki67Score.pLow}}%)</ion-item-divider>
+    <ion-item *ngFor='let field of ki67Score.getFieldsLow()'>
+      {{field.negCount}}- / {{field.posCount}}+
+      <ion-note item-end>{{field.getScore()}}%</ion-note></ion-item>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-item-divider color="ki67medium">Medium ({{ki67Score.pMed}}%)</ion-item-divider>
+    <ion-item *ngFor='let field of ki67Score.getFieldsMed()'>
+      {{field.negCount}}- / {{field.posCount}}+
+      <ion-note item-end>{{field.getScore()}}%</ion-note></ion-item>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-item-divider color="ki67high">High ({{ki67Score.pHigh}}%)</ion-item-divider>
+    <ion-item *ngFor='let field of ki67Score.getFieldsHigh()'>
+      {{field.negCount}}- / {{field.posCount}}+
+      <ion-note item-end>{{field.getScore()}}%</ion-note></ion-item>
+  </ion-item-group>
+
+  <ion-item-group>
+    <button ion-button full color="dark" (click)="openGlobalPage()">Score another slide</button>
+  </ion-item-group>
+
+</ion-content>

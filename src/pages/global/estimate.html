@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Global - estimate</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <p>{{instruction}}</p>
+
+  <ion-item>
+    <ion-range min="0" max="100" pin="true" [(ngModel)]="pNeg"
+      color="ki67negative" (ionChange)="onChangeSlider($event,'pNeg')">
+      <ion-label range-left color="ki67negative" fixed class="fixedLabel25">Neg:</ion-label>
+      <ion-label range-right>{{pNeg}}%</ion-label>
+    </ion-range>
+  </ion-item>
+
+  <ion-item>
+    <ion-range min="0" max="100" pin="true" [(ngModel)]="pLow"
+      color="ki67low" (ionChange)="onChangeSlider($event, 'pLow')">
+      <ion-label range-left color="ki67low" fixed class="fixedLabel25">Low:</ion-label>
+      <ion-label range-right>{{pLow}}%</ion-label>
+    </ion-range>
+  </ion-item>
+
+  <ion-item>
+    <ion-range min="0" max="100" pin="true" [(ngModel)]="pMed"
+      color="ki67medium" (ionChange)="onChangeSlider($event, 'pMed')">
+      <ion-label range-left color="ki67medium" fixed class="fixedLabel25">Medium:</ion-label>
+      <ion-label range-right>{{pMed}}%</ion-label>
+    </ion-range>
+  </ion-item>
+
+  <ion-item>
+    <ion-range min="0" max="100" pin="true" [(ngModel)]="pHigh"
+      color="ki67high" (ionChange)="onChangeSlider($event, 'pHigh')">
+      <ion-label range-left color="ki67high" fixed class="fixedLabel25">High:</ion-label>
+      <ion-label range-right>{{pHigh}}%</ion-label>
+    </ion-range>
+  </ion-item>
+
+  <ion-footer>
+    <button ion-button disabled={{percentEstNotOk}} full color="dark" (click)="goToCounter($event)">Next</button>
+  </ion-footer>
+
+</ion-content>

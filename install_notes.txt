@@ -1,0 +1,67 @@
+to test in browser:
+> ionic cordova run browser
+
+to generate icon/splash screen:
+https://ionicframework.com/docs/cli/cordova/resources/
+1. put icon.png and splash.png in resources/
+2. > ionic cordova resources -i
+3. > ionic cordova resources -s
+
+build for webserver:
+(only need do once) 1. > ionic cordova platform add browser
+2. > ionic cordova build browser --prod --release
+3. webpages at: [project_folder]/platforms/browser/www
+4. > cd platforms/browser; tar -cvf Ki67CounterYYYYMMDD.tar www
+5. move tar file back to [project_folder]
+
+build for android:
+ref: https://ionicframework.com/docs/intro/deploying/
+to test run on android device
+> cordova run android --device
+
+0.1. need to change config.xml 
+ref: https://stackoverflow.com/questions/45046983/error-while-uploading-apk-built-on-ionic-to-the-google-playstore?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+- this is to avoid error when uploading apk to Google Play store: "io.ionic.starter" already exists in Google Play.
+widget id: ca.ubc.gpec.ki67counter
+
+0.2 need to INCREMENT ANDROID VERSION CODE EVERYTIME change apk
+- edit config.xml
+add inside <widget ...> add android-versionCode="2" 
+
+to build apk NOTE: 
+> ionic cordova build android --prod --release 
+
+to sign apk
+1. create certificate/keystore
+> keytool -genkey -v -keystore ki67counter-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias ki67counter
+password: breastcancer
+first and last name: Samuel Leung
+organization unit: Genetic Pathology Evaluation Centre
+organization: University of British Columbia
+city: Vancouver
+Province: British Columbia
+Country code: CA
+key password: breastcancer
+
+2. sign the unsigned APK
+> jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ki67counter-release-key.jks platforms/android/build/outputs/apk/android-release-unsigned.apk ki67counter
+
+3. run the zip align tool to optimize the APK
+> ~/Android/Sdk/build-tools/27.0.3/zipalign -v 4 platforms/android/build/outputs/apk/android-release-unsigned.apk ki67counter_20180519.apk
+
+4. verify apk is signed
+> ~/Android/Sdk/build-tools/27.0.3/apksigner verify ki67counter_20180519.apk
+
+Google App Store specifics (when publishing):
+default language: en-US
+Title: Ki67 scoring app
+Short description: Ki67 scoring app
+Full description: The Ki67 scoring app assists pathologist with scoring Ki67 using the standardized scoring method proposed by the International Ki67 Working Group (https://www.ki67inbreastcancerwg.org/).
+
+Generate privacy url
+
+Create a free website: https://sites.google.com/?pli=1
+https://sites.google.com/site/ki67scoringappprivacypolicy
+
+The following site help generate a privacy policy
+https://www.freeprivacypolicy.com/free-privacy-policy-generator.php

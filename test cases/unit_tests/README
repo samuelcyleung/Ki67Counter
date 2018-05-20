@@ -1,0 +1,14 @@
+Javascript unit test
+
+try https://designmodo.com/test-javascript-unit/
+
+try Jasmine with node: https://jasmine.github.io/setup/nodejs.html
+1. cd to test folder
+2. > npm install -g jasmine
+   > npm install -g jasmine-ts
+   > npm install -g ts-node
+   > npm install -g @types/jasmine
+   > npm install -g typescript
+3. > jasmine init 
+4. > jasmine examples # generate example
+5. > jasmine spec/jasmine_examples/PlayerSpec.js # run example test suits

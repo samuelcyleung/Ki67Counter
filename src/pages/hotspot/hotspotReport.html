@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Hot-spot - score report</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>Hot-spot score:<ion-note item-end>{{hotspotScore}}%</ion-note></ion-item>
+  <ion-item-group>
+    <ion-item># negative nuclei: {{negCount}}</ion-item>
+    <ion-item># positive nuclei: {{posCount}}</ion-item>
+  </ion-item-group>
+
+  <ion-item-group>
+    <button ion-button full color="dark" (click)="openHotspotPage()">Score another slide</button>
+  </ion-item-group>
+
+</ion-content>

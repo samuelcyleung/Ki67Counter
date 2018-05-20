@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Hot-spot</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <p>Please select 1 high-powered field with the highest Ki67 positivity and count up to 500 nuclei.</p>
+
+  <ion-grid (swipe)="resetCounter($event)">
+    <ion-row>
+      <ion-col>
+        <div align="center">{{negCount}}</div>
+      </ion-col>
+      <ion-col>
+        <div align="center">{{posCount}}</div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div align="center"><button ion-button color="negative" round (click)="incrNegCount($event)">Negative</button></div>
+      </ion-col>
+      <ion-col>
+        <div align="center"><button ion-button color="positive" round (click)="incrPosCount($event)">Positive</button></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-footer>
+    <button ion-button full color="dark" (click)="showNext()">SHOW SCORE</button>
+  </ion-footer>
+
+</ion-content>
