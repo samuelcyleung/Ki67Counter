@@ -1,4 +1,31 @@
-to test in browser:
+Initial install
+
+1. start with ionic sidemenu app
+> ionic start Ki67Counter_TEMPLATE sidemenu
+
+2. clone https://github.com/samuelcyleung/Ki67Counter.git
+
+3. copy contents from Ki67Counter_TEMPLATE to Ki67Counter
+
+4. add plugins
+> ionic cordova plugin add cordova-plugin-nativeaudio
+> npm install --save @ionic-native/native-audio
+
+5. modify config.xml
+<widget id="ca.ubc.gpec.ki67counter" ...>
+
+6. add platform
+> ionic cordova platform add ios
+
+7. generate icon/splash images
+> ionic cordova resources -i
+> ionic cordova resources -s
+
+
+
+########################
+### to test in browser:
+###
 > ionic cordova run browser
 
 to generate icon/splash screen:
@@ -7,14 +34,33 @@ https://ionicframework.com/docs/cli/cordova/resources/
 2. > ionic cordova resources -i
 3. > ionic cordova resources -s
 
-build for webserver:
+##########################
+### build for webserver:
+###
 (only need do once) 1. > ionic cordova platform add browser
 2. > ionic cordova build browser --prod --release
 3. webpages at: [project_folder]/platforms/browser/www
 4. > cd platforms/browser; tar -cvf Ki67CounterYYYYMMDD.tar www
 5. move tar file back to [project_folder]
 
-build for android:
+######################
+### build for ios:
+###
+ref: https://ionicframework.com/docs/intro/deploying/
+
+1 . create provisioning profile (only need to do once)
+2. > ionic cordova build ios --prod
+3. sign code (done in Xcode):
+   a. Go to the ‘Project Editor’ by clicking the name or your project in the ‘Project Navigator’
+   b. Select the ‘General’ section
+   c. Select the team associate with your signing certificate from the ‘Team’ dropdown in the ‘Signing’ section
+
+
+ 
+
+######################
+### build for android:
+###
 ref: https://ionicframework.com/docs/intro/deploying/
 to test run on android device
 > cordova run android --device
