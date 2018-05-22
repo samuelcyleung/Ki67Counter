@@ -3,6 +3,7 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { NativeAudio } from '@ionic-native/native-audio';
 import { Ki67Score } from '../../app/ki67Score';
 import { GlobalReportPage } from './global'
+import { Platform } from 'ionic-angular';
 
 @Component({
   templateUrl: 'counter.html'
@@ -18,17 +19,25 @@ export class GlobalCounterPage {
               public navCtrl: NavController,
               public navParams: NavParams,
               public alertCtrl: AlertController,
-              private nativeAudio: NativeAudio) {
+              private nativeAudio: NativeAudio,
+              public platform: Platform) {
     this.negCount = 0;
     this.posCount = 0;
     this.threshold = 100;
     this.ki67Score = this.navParams.get('ki67Score');
     this.ki67ScoreIndex = this.navParams.get('ki67ScoreIndex');
 
-    // initialize sound objects
-    this.nativeAudio.preloadSimple('negSound', 'assets/sound/beep_09.wav');
-    this.nativeAudio.preloadSimple('posSound', 'assets/sound/Click01.wav');
-    this.nativeAudio.preloadSimple('doneSound', 'assets/sound/DingLing.wav');
+    this.platform.ready().then(() => {
+      // initialize sound objects
+      // NOTES (2018-05-20): preloadSimple does NOT work for iOS, but preloadComplex worked
+      //this.nativeAudio.preloadSimple('negSound', 'assets/sound/beep_09.wav');
+      this.nativeAudio.preloadComplex('negSound', 'assets/sound/beep_09.wav',1,1,0);
+      //this.nativeAudio.preloadSimple('posSound', 'assets/sound/Click01.wav');
+      this.nativeAudio.preloadComplex('posSound', 'assets/sound/Click01.wav',1,1,0);
+      //this.nativeAudio.preloadSimple('doneSound', 'assets/sound/DingLing.wav');
+      this.nativeAudio.preloadComplex('doneSound', 'assets/sound/DingLing.wav',1,1,0);
+    });
+
   }
 
   enoughCounted() {
