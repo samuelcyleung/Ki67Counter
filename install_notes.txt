@@ -58,9 +58,45 @@ ref: https://ionicframework.com/docs/intro/deploying/
    a. Go to the ‘Project Editor’ by clicking the name or your project in the ‘Project Navigator’
    b. Select the ‘General’ section
    c. Select the team associate with your signing certificate from the ‘Team’ dropdown in the ‘Signing’ section
+...
+4. in Xcode need to do Product->Archive
 
+to publish app in itune: https://help.apple.com/itunes-connect/developer/
 
- 
+iTune specific (when publishing)
+Platform: iOS
+Name: Ki67 scoring app
+Primary Language: English (U.S.)
+Bundle ID: ca.ubc.gpec.ki67counter
+SKU 0001
+
+Privacy Policy URL: https://sites.google.com/site/ki67scoringappprivacypolicy
+Subtitle [leave blank] 
+
+Price $0
+
+Promotional Text: [leave blank]
+
+Description: The Ki67 scoring app assists pathologist with scoring Ki67 using the standardized scoring method proposed by the International Ki67 Working Group (https://www.ki67inbreastcancerwg.org/).
+
+Keywords: Medical, Pathology, Ki67, Scoring 
+
+Support URL: https://www.ki67inbreastcancerwg.org
+
+Marketing URL: [leave blank]
+
+Copyright: Genetic Pathology Evaluation Centre
+
+App Review Information:
+- First/Last name: Samuel Leung
+- Phone number: 1-604-809-4803
+- Email: sam.leung@gmail.com
+- Notes: [leave blank]
+- uncheck sign-in required
+- attachment: [none]
+
+Version Release
+- select "Automatically release this version"
 
 ######################
 ### build for android:
