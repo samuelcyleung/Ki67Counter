@@ -7,13 +7,15 @@ Initial install
 
 2. clone https://github.com/samuelcyleung/Ki67Counter.git
 
-3. copy contents from Ki67Counter_TEMPLATE to Ki67Counter
+3a. copy contents from Ki67Counter to Ki67Counter_TEMPLATE
+3b. rename Ki67Counter_TEMPLATE to Ki67Counter
 
 4. add plugins
 > ionic cordova plugin add cordova-plugin-nativeaudio
 > npm install -g --save @ionic-native/native-audio
 > sudo npm install -g --save @ionic-native/core
 > sudo npm install -g --save @angular/core
+> sudo npm install -g --save @angular/compiler
 > sudo npm install -g --save rxjs
 > sudo npm install -g --save zone.js
 
