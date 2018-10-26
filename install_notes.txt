@@ -1,5 +1,8 @@
 Initial install
 
+0. install ionic (may need to restrict to ionic version 3)
+> sudo npm install -g ionic@3 cordova
+
 1. start with ionic sidemenu app
 > ionic start Ki67Counter_TEMPLATE sidemenu
 
@@ -12,7 +15,7 @@ Initial install
 
 4. add plugins
 > ionic cordova plugin add cordova-plugin-nativeaudio
-> npm install -g --save @ionic-native/native-audio
+> npm install --save @ionic-native/native-audio
 > sudo npm install -g --save @ionic-native/core
 > sudo npm install -g --save @angular/core
 > sudo npm install -g --save @angular/compiler
