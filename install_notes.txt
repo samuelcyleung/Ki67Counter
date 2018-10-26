@@ -3,6 +3,8 @@ Initial install
 1. start with ionic sidemenu app
 > ionic start Ki67Counter_TEMPLATE sidemenu
 
+[Integrate your new app with Cordova to target native iOS and Android?] - select "Yes"
+
 2. clone https://github.com/samuelcyleung/Ki67Counter.git
 
 3. copy contents from Ki67Counter_TEMPLATE to Ki67Counter
