@@ -61,12 +61,30 @@ ref: https://ionicframework.com/docs/intro/deploying/
 
 1 . create provisioning profile (only need to do once)
 2. > ionic cordova build ios --prod
+
+OR ... may need to do the following:
+edit Ki67Counter/platforms/ios/cordova/build-release.xcconfig
+change
+>>CODE_SIGN_IDENTITY = iPhone Distribution
+>>CODE_SIGN_IDENTITY[sdk=iphoneos*] = iPhone Distribution
+TO
+<<CODE_SIGN_IDENTITY = iPhone Developer
+<<CODE_SIGN_IDENTITY[sdk=iphoneos*] = iPhone Developer
+
+then run ionic
+> ionic cordova build ios --release
+
 3. sign code (done in Xcode):
    a. Go to the ‘Project Editor’ by clicking the name or your project in the ‘Project Navigator’
    b. Select the ‘General’ section
    c. Select the team associate with your signing certificate from the ‘Team’ dropdown in the ‘Signing’ section
 ...
-4. in Xcode need to do Product->Archive
+
+pre-4: set build system to "Legacy Build System"
+ref: https://github.com/apache/cordova-ios/issues/412
+In the Xcode, open Workspace Settings -> Build System -> and select Legacy Build System
+
+4. in Xcode need to do Product->Archive (remember to update version number!)
 
 to publish app in itune: https://help.apple.com/itunes-connect/developer/
 
@@ -76,6 +94,7 @@ Name: Ki67 scoring app
 Primary Language: English (U.S.)
 Bundle ID: ca.ubc.gpec.ki67counter
 SKU 0001
+Category: Medical
 
 Privacy Policy URL: https://sites.google.com/site/ki67scoringappprivacypolicy
 Subtitle [leave blank] 
